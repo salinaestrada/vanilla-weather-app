@@ -14,29 +14,37 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <div class="overview">
-          <h1>Austin</h1>
-          <ul>
-            <li>Monday 11:15</li>
-            <li>Clear</li>
-          </ul>
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="col-6">
-              <img
-                src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
-                alt="Clear"
-              />
-              12ºC | ºF
-            </div>
-            <div class="col-6">
-              <ul>
-                <li>Precipitation: 0%</li>
-                <li>Humidity: 73%</li>
-                <li>Wind: 2mph</li>
-              </ul>
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <div class="overview">
+            <h1>Austin</h1>
+            <ul>
+              <li>Monday 11:15</li>
+              <li>Clear</li>
+            </ul>
+          </div>
+          <div class="container">
+            <div class="row">
+              <div class="col-6">
+                <div class="d-flex weather-temperature">
+                  <img
+                    src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
+                    alt="Clear"
+                    id="icon"
+                  />
+                  <div>
+                    <strong id="temperature">69</strong
+                    ><span class="units">°F | <a href="#"> ºC</a></span>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6">
+                <ul>
+                  <li>Precipitation: 0%</li>
+                  <li>Humidity: 73%</li>
+                  <li>Wind: 2mph</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
