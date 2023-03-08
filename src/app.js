@@ -39,7 +39,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.time * 1000);
 }
 let apiKey = "be8of109b6t500324a628a4f8a83394b";
-let apiUrl =
-  "https://api.shecodes.io/weather/v1/current?query=Austin&key=be8of109b6t500324a628a4f8a83394b&units=imperial";
+let city = "Austin";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=be8of109b6t500324a628a4f8a83394b&units=imperial`;
 
 axios.get(apiUrl).then(displayTemperature);
