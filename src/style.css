@@ -25,9 +25,13 @@ li {
   line-height: 19px;
 }
 
-#conditions {
+li::first-letter {
   text-transform: capitalize;
 }
+
+/* #conditions {
+  text-transform: capitalize;
+} */
 
 .weather-app-wrapper {
   max-width: 600px;
