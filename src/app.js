@@ -24,7 +24,10 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
-  temperatureElement.innerHTML = Math.round(response.data.temperature.current);
+
+  farenheitTemperature = response.data.temperature.current;
+
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
   cityElement.innerHTML = response.data.city;
   conditionsElement.innerHTML = response.data.condition.description;
   feelElement.innerHTML = Math.round(response.data.temperature.feels_like);
@@ -38,20 +41,49 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", `${response.data.condition.description}`);
 }
 
+// Functions as search engine
 function search(city) {
   let apiKey = "be8of109b6t500324a628a4f8a83394b";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=be8of109b6t500324a628a4f8a83394b&units=imperial`;
   axios.get(apiUrl).then(displayTemperature);
 }
 
+// Function that occurs when clicking Submit button
 function handleSubmit(event) {
   event.preventDefault();
   let cityInputElement = document.querySelector("#city-input");
-  //   console.log(cityInputElement.value);
   search(cityInputElement.value);
 }
 
-search("Austin");
+//Function to convert F to C
+function showCelsiusTemperature(event) {
+  event.preventDefault();
+  let celsiusTemperature = ((farenheitTemperature - 32) * 5) / 9;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
 
+//Function to convert C to F
+function showFarenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+}
+
+// Default temp in F
+let farenheitTemperature = null;
+
+// Event listener for Submit button
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+//Event listener for Celsius conversion
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+
+// Event listener for Farenheit conversion
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", showFarenheitTemperature);
+
+// Default page load city
+search("Austin");
