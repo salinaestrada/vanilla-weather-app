@@ -59,6 +59,9 @@ function handleSubmit(event) {
 function showCelsiusTemperature(event) {
   event.preventDefault();
   let celsiusTemperature = ((farenheitTemperature - 32) * 5) / 9;
+  // Remove active class from Farenheit link
+  farenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
@@ -66,6 +69,9 @@ function showCelsiusTemperature(event) {
 //Function to convert C to F
 function showFarenheitTemperature(event) {
   event.preventDefault();
+  farenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = Math.round(farenheitTemperature);
 }
