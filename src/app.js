@@ -15,6 +15,12 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  forecastElement.innerHTML = "Forecast";
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -93,3 +99,11 @@ farenheitLink.addEventListener("click", showFarenheitTemperature);
 
 // Default page load city
 search("Austin");
+displayForecast();
+
+// Function to display forecast
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  forecastElement.innerHTML = "forecast";
+}
